@@ -2,7 +2,8 @@ import React from 'react'
 import {
   Navbar,
   Intro,
-  Intro2
+  Intro2,
+  Info
 } from '../../components'
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
       <Navbar />
       <Intro />
       <Intro2 />
+      <Info />
     </div>
   )
 }
