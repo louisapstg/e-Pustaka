@@ -28,6 +28,28 @@
   color: #61dafb;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
+.text-transparent {
+  color: transparent;
+}
+
+.blue {
+  background-color: #4361ee !important;
+  color: white !important;
+}
+
+.text-blue {
+  color: #4361ee;
+}
+
+.light-blue {
+  background-color: #f8fbff !important;
+  color: #000;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +57,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.list-group .list-group-item {
+  font-size: 14px;
+}
+
+.col-4 p {
+  font-size: 14px;
 }
