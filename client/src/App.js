@@ -14,7 +14,8 @@ import {
 
 // pages
 import {
-  Home
+  Home,
+  List
 } from './pages'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/book-list' element={<List />} />
         </Routes>
       </BrowserRouter>
     </>
