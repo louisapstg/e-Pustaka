@@ -22,7 +22,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route></Route>
+          <Route path='/' element={<Home />} />
         </Routes>
       </BrowserRouter>
     </>
