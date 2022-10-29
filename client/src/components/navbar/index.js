@@ -49,12 +49,12 @@ const Navbar = () => {
                     </Link>
                   </li>
                   <li className="nav-item dropdown">
-                    <Link className="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <Link className="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <FontAwesomeIcon icon={faEllipsis} className='me-1' />
                       Atur Buku
                     </Link>
                     <ul className="dropdown-menu">
-                      <li><Link className="dropdown-item" href="#">
+                      <li><Link className="dropdown-item" to='/add-book'>
                         <FontAwesomeIcon icon={faPlus} className='me-2' />
                         Tambah Buku
                       </Link></li>
