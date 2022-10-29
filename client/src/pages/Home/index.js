@@ -3,7 +3,8 @@ import {
   Navbar,
   Intro,
   Intro2,
-  Info
+  Info,
+  Footer
 } from '../../components'
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
       <Intro />
       <Intro2 />
       <Info />
+      <Footer />
     </div>
   )
 }
