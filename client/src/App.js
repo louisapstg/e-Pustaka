@@ -15,7 +15,8 @@ import {
 // pages
 import {
   Home,
-  List
+  List,
+  AddBook
 } from './pages'
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/book-list' element={<List />} />
+          <Route path='/add-book' element={<AddBook />} />
         </Routes>
       </BrowserRouter>
     </>
