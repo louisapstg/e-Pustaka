@@ -1,13 +1,15 @@
 import React from 'react'
 import {
   Navbar,
-  Footer
+  Footer,
+  FormAddBook
 } from '../../components'
 
 const AddBook = () => {
   return (
     <div>
       <Navbar />
+      <FormAddBook />
       <Footer />
     </div>
   )
