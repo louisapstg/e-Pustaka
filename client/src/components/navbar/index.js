@@ -58,7 +58,7 @@ const Navbar = () => {
                         <FontAwesomeIcon icon={faPlus} className='me-2' />
                         Tambah Buku
                       </Link></li>
-                      <li><Link className="dropdown-item" href="#">
+                      <li><Link className="dropdown-item" to='/edit-book'>
                         <FontAwesomeIcon icon={faPenToSquare} className='me-2' />
                         Ubah Buku
                       </Link></li>
