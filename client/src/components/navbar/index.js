@@ -75,10 +75,12 @@ const Navbar = () => {
                     Masuk
                   </button>
                 </Link>
-                <button className="btn btn-sign fw-bold">
-                  <FontAwesomeIcon icon={faUserPlus} className='me-1' />
-                  Daftar
-                </button>
+                <Link to='/register'>
+                  <button className="btn btn-sign fw-bold">
+                    <FontAwesomeIcon icon={faUserPlus} className='me-1' />
+                    Daftar
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,17 +1,16 @@
 import React from 'react'
 import {
-  Navbar,
-  Footer,
-  FormAddBook
+  FormRegister,
+  Navbar
 } from '../../components'
 
-const AddBook = () => {
+const Register = () => {
   return (
     <div>
       <Navbar />
-      <FormAddBook />
+      <FormRegister />
     </div>
   )
 }
 
-export default AddBook
+export default Register
