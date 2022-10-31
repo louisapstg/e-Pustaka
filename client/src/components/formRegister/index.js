@@ -1,11 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import {
   MDBContainer,
   MDBRow,
   MDBInput,
   MDBBtn,
-  MDBCheckbox,
   MDBCol
 } from 'mdb-react-ui-kit'
 import {
@@ -14,25 +13,23 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const FormLogin = () => {
+const FormRegister = () => {
   return (
-
     <MDBContainer className='mb-5' style={{ marginTop: '85px' }}>
       <MDBRow className='p-5'>
         <MDBCol>
-
         </MDBCol>
         <MDBCol className='p-4 light-blue rounded-9 shadow-6'>
           <div className='mb-4 text-center'>
             <Link to='/login'>
-              <button className="btn btn-sign blue fw-bold">
-                <FontAwesomeIcon icon={faUserPlus} className='me-1' />
+              <button className="btn fw-bold shadow-none text-black">
+                <FontAwesomeIcon icon={faRightToBracket} className='me-2' />
                 Masuk
               </button>
             </Link>
             <Link to='/register'>
-              <button className="btn fw-bold shadow-none text-black">
-                <FontAwesomeIcon icon={faRightToBracket} className='me-2' />
+              <button className="btn btn-sign blue fw-bold">
+                <FontAwesomeIcon icon={faUserPlus} className='me-1' />
                 Daftar
               </button>
             </Link>
@@ -44,28 +41,23 @@ const FormLogin = () => {
             <MDBInput label='Kata Sandi' id='typePassword' type='password' />
           </div>
           <div className='mb-3'>
-            <MDBCheckbox className='me-0' name='inlineCheck' id='inlineCheckbox1' value='option1' inline />
-            <label htmlFor="inlineCheckbox1" className='text-muted' style={{ fontSize: '14px' }}>
-              Remember Me
-            </label>
+            <MDBInput label='Konfirmasi Kata Sandi' id='typePassword' type='password' />
           </div>
           <div className='mb-3 text-center'>
-            <MDBBtn className='w-100 mb-1 fw-bold' color='dark' rounded>
-              Masuk
+            <MDBBtn className='w-100 mb-1 fw-bold' color='dark' rounded outline>
+              Daftar
             </MDBBtn>
             <p className='text-muted mb-1' style={{ fontSize: '14px' }}>atau</p>
-            <MDBBtn className='w-100 fw-bold' color='dark' rounded outline>
-              Daftar
+            <MDBBtn className='w-100 mb-1 fw-bold' color='dark' rounded>
+              Masuk
             </MDBBtn>
           </div>
         </MDBCol>
         <MDBCol>
-
         </MDBCol>
-
       </MDBRow>
     </MDBContainer>
   )
 }
 
-export default FormLogin
+export default FormRegister
