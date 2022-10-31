@@ -23,10 +23,10 @@ const FormLogin = () => {
             </h4>
           </div>
           <div className='mb-3'>
-            <MDBInput label='Email input' id='typeEmail' type='email' />
+            <MDBInput label='Email' id='typeEmail' type='email' />
           </div>
           <div className='mb-3'>
-            <MDBInput label='Password input' id='typePassword' type='password' />
+            <MDBInput label='Kata Sandi' id='typePassword' type='password' />
           </div>
           <div className='mb-3'>
             <MDBCheckbox className='me-0' name='inlineCheck' id='inlineCheckbox1' value='option1' inline />
