@@ -6,6 +6,7 @@ import Footer from './footer/index'
 import BookList from './bookList/index'
 import FormAddBook from './formAddBook/index'
 import FormEditBook from './formEditBook/index'
+import FormLogin from './formLogin/index';
 
 export {
   Navbar,
@@ -15,5 +16,6 @@ export {
   Footer,
   BookList,
   FormAddBook,
-  FormEditBook
+  FormEditBook,
+  FormLogin
 }

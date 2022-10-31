@@ -1,13 +1,15 @@
 import React from 'react'
 import {
   Navbar,
-  Footer
+  Footer,
+  FormLogin
 } from '../../components'
 
 const Login = () => {
   return (
     <div>
       <Navbar />
+      <FormLogin />
       <Footer />
     </div>
   )
