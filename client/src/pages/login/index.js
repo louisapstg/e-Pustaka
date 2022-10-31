@@ -10,7 +10,6 @@ const Login = () => {
     <div>
       <Navbar />
       <FormLogin />
-      <Footer />
     </div>
   )
 }

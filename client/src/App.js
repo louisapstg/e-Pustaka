@@ -18,7 +18,8 @@ import {
   List,
   AddBook,
   EditBook,
-  Login
+  Login,
+  Register
 } from './pages'
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path='/add-book' element={<AddBook />} />
           <Route path='/edit-book' element={<EditBook />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
         </Routes>
       </BrowserRouter>
     </>
