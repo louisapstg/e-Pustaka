@@ -17,7 +17,8 @@ import {
   Home,
   List,
   AddBook,
-  EditBook
+  EditBook,
+  Login
 } from './pages'
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path='/book-list' element={<List />} />
           <Route path='/add-book' element={<AddBook />} />
           <Route path='/edit-book' element={<EditBook />} />
+          <Route path='/login' element={<Login />} />
         </Routes>
       </BrowserRouter>
     </>

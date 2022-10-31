@@ -69,10 +69,12 @@ const Navbar = () => {
             </div>
             <div className="col-4">
               <div className="text-center">
-                <button className="btn btn-login fw-bold shadow-none">
-                  <FontAwesomeIcon icon={faRightToBracket} className='me-2' />
-                  Masuk
-                </button>
+                <Link to='/login'>
+                  <button className="btn btn-login fw-bold shadow-none">
+                    <FontAwesomeIcon icon={faRightToBracket} className='me-2' />
+                    Masuk
+                  </button>
+                </Link>
                 <button className="btn btn-sign fw-bold">
                   <FontAwesomeIcon icon={faUserPlus} className='me-1' />
                   Daftar
