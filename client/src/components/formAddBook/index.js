@@ -7,8 +7,8 @@ import {
 
 const FormAddBook = () => {
   return (
-    <div className='container w-50' style={{ padding: '7px' }}>
-      <div className='mt-5 p-5'>
+    <div className='container w-50 p-5'>
+      <div className='mt-5 p-5 light-blue rounded shadow-4'>
         <div className='mb-4 text-center'>
           <h2>Tambah Buku</h2>
         </div>
