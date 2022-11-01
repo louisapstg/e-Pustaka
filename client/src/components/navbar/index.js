@@ -37,28 +37,28 @@ const Navbar = () => {
               <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto fw-semibold">
                   <li className="nav-item me-2">
-                    <Link className="nav-link text-white" aria-current="page" to='/'>
+                    <Link className="nav-link text-white transition" aria-current="page" to='/'>
                       <FontAwesomeIcon icon={faHouse} className='me-1' style={{ width: '17px', marginBottom: '1px' }} />
                       Utama
                     </Link>
                   </li>
                   <li className="nav-item me-2 active">
-                    <Link className="nav-link text-white" to='/book-list'>
+                    <Link className="nav-link text-white transition" to='/book-list'>
                       <FontAwesomeIcon icon={faListUl} className='me-1' />
                       Daftar Buku
                     </Link>
                   </li>
                   <li className="nav-item dropdown">
-                    <Link className="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <Link className="nav-link dropdown-toggle text-white transition" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       <FontAwesomeIcon icon={faEllipsis} className='me-1' />
                       Atur Buku
                     </Link>
                     <ul className="dropdown-menu">
-                      <li><Link className="dropdown-item" to='/add-book'>
+                      <li><Link className="dropdown-item transition" to='/add-book'>
                         <FontAwesomeIcon icon={faPlus} className='me-2' />
                         Tambah Buku
                       </Link></li>
-                      <li><Link className="dropdown-item" to='/edit-book'>
+                      <li><Link className="dropdown-item transition" to='/edit-book'>
                         <FontAwesomeIcon icon={faPenToSquare} className='me-2' />
                         Ubah Buku
                       </Link></li>
@@ -70,13 +70,13 @@ const Navbar = () => {
             <div className="col-4">
               <div className="text-center">
                 <Link to='/login'>
-                  <button className="btn btn-login fw-bold shadow-none">
+                  <button className="btn btn-login fw-bold shadow-none transition">
                     <FontAwesomeIcon icon={faRightToBracket} className='me-2' />
                     Masuk
                   </button>
                 </Link>
                 <Link to='/register'>
-                  <button className="btn btn-sign fw-bold">
+                  <button className="btn btn-sign fw-bold transition">
                     <FontAwesomeIcon icon={faUserPlus} className='me-1' />
                     Daftar
                   </button>
