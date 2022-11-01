@@ -13,6 +13,10 @@
   color: rgb(50, 50, 50);
 }
 
+.transition {
+  transition: 0.5s ease-in-out;
+}
+
 .btn-sign:hover {
   background-color: rgb(50, 50, 50);
   box-shadow: none;
