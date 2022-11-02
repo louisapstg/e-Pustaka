@@ -6,7 +6,7 @@ import {
 const initialValue = [
   {
     id: uuidv4(),
-    url: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTQ9LFglH_i7X2DcF1jR3m0UKhpnmFDu3YCjy9e2Wxca7v8lrvo',
+    url: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRkWXbfQrO5oTm1I5izjeRTbQD-vKPnybT24S2kFw2eH8LyyCo5',
     title: "Harry Potter and the Philosopher's Stone",
     description: "Harry Potter and the Philosopher's Stone merupakan sebuah novel fantasi pada tahun 1997 yang ditulis oleh J. K. Rowling",
     sinopsis: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro cupiditate odio animi libero ea neque quia fuga est unde dignissimos, eius quod obcaecati ab quaerat repudiandae, quasi quas quibusdam sed.'

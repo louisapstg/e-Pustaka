@@ -6,7 +6,8 @@ import {
 } from 'mdb-react-ui-kit'
 import { v4 as uuidv4 } from "uuid"
 import { tambahBuku } from '../../store/bookSlice'
-import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux'
+import Swal from 'sweetalert2'
 
 const FormAddBook = () => {
 
@@ -30,6 +31,13 @@ const FormAddBook = () => {
       sinopsis
     }
     dispatch(tambahBuku(temp))
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Your work has been saved',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
 
   return (
