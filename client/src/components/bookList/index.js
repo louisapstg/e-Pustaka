@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   MDBCard,
   MDBCardImage,
@@ -10,10 +10,28 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit';
 import { useSelector } from 'react-redux'
+import { GetBook } from './../../graphql/query'
+import { useQuery } from '@apollo/client'
+import { SubscriptionBook } from './../../graphql/subscription';
 
 const BookList = () => {
 
-  const books = useSelector((state) => state.book.books)
+  // Query
+  const { subsBook } = SubscriptionBook()
+  const { data, loading, error } = useQuery(GetBook)
+
+  // const books = useSelector((state) => state.book.books)
+  const [book, setBook] = useState([])
+
+  useEffect(() => {
+    subsBook()
+  }, [])
+
+  useEffect(() => {
+    if (data) {
+      setBook(data.book)
+    }
+  }, [data])
 
   return (
     <div className='container'>
