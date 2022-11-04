@@ -19,5 +19,13 @@ export const InsertBook = gql`
         insert_book_one(object: $object) {
             id
         }
-    }  
+    }    
+`
+
+export const UpdateBook = gql`
+    mutation MyMutation($id: Int!, $title: String!) {
+        update_book(where: {id: {_eq: $id}}, _set: {title: $title}) {
+            affected_rows
+        }
+    }
 `
