@@ -1,32 +1,44 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   MDBRow,
   MDBCol,
   MDBCard,
   MDBCardBody,
   MDBCardTitle,
-  MDBCardText,
   MDBBtn
 } from 'mdb-react-ui-kit'
-import { useSelector, useDispatch } from 'react-redux'
-import { hapusBuku } from '../../store/bookSlice'
+import useGetData from './../../hooks/useGetData'
+import LoadingSVG from './../LoadingSVG'
+
 
 const FormEditBook = () => {
 
-  const books = useSelector((state) => state.book.books)
-  const dispatch = useDispatch()
+  const { data, loading, error, subscribeBook } = useGetData()
+
+  useEffect(() => {
+    subscribeBook()
+  }, [])
+
+  if (loading) {
+    return (
+      <div className='m-5 p-5'>
+        <LoadingSVG />
+      </div>
+    )
+  }
+
+  if (error) {
+    return <p>Something Went Wrong...</p>
+  }
 
   return (
     <div className="container">
       <MDBRow className='row-cols-1 row-cols-md-3 g-4 mt-4 p-5'>
-        {books.map((book) => (
+        {data?.book.map((item) => (
           <MDBCol className='w-25'>
             <MDBCard>
               <MDBCardBody className='light-blue'>
-                <MDBCardTitle className='fw-bold'>{book.title}</MDBCardTitle>
-                <MDBCardText>
-                  {book.description}
-                </MDBCardText>
+                <MDBCardTitle className='fw-bold text-center'>{item.title}</MDBCardTitle>
                 <MDBBtn className='float-start' color='warning' rounded>
                   Edit
                 </MDBBtn>
@@ -34,7 +46,6 @@ const FormEditBook = () => {
                   className='float-end'
                   color='danger'
                   rounded
-                  onClick={() => { dispatch(hapusBuku(book.id)) }}
                 >
                   Delete
                 </MDBBtn>
