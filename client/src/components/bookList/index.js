@@ -11,7 +11,11 @@ const BookList = () => {
   }, [])
 
   if (loading) {
-    return <LoadingSVG />
+    return (
+      <div className='m-5 p-5'>
+        <LoadingSVG />
+      </div>
+    )
   }
 
   if (error) {

@@ -9,6 +9,7 @@ export default function useGetData() {
       document: SubscriptionBook,
       updateQuery: (prev, { subscriptionData: { data } }) => {
         console.log(data)
+        return data
       }
     })
   }
