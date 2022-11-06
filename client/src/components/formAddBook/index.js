@@ -4,33 +4,61 @@ import {
   MDBTextArea,
   MDBBtn
 } from 'mdb-react-ui-kit'
-import { v4 as uuidv4 } from "uuid"
-import { tambahBuku } from '../../store/bookSlice'
-import { useDispatch } from 'react-redux'
 import Swal from 'sweetalert2'
+import useInsertBook from './../../hooks/useInsertBook';
 
 const FormAddBook = () => {
 
-  const [title, setTitle] = useState('')
-  const [author, setAuthor] = useState('')
-  const [description, setDescription] = useState('')
-  const [url, setUrl] = useState('')
-  const [sinopsis, setSinopsis] = useState('')
-  const dispatch = useDispatch()
+  const { insertBook } = useInsertBook()
+  const [books, setBooks] = useState({
+    title: "",
+    author: "",
+    url: "",
+    description: ""
+  })
+
+  const tambahBuku = (newBook) => {
+    const newData = {
+      ...newBook
+    }
+    insertBook({
+      variables: {
+        object: {
+          title: newData.title,
+          author: newData.author,
+          url: newData.url,
+          description: newData.description
+        }
+      }
+    })
+  }
+
+  const onChange = (e) => {
+    setBooks({
+      ...books,
+      [e.target.name]: e.target.value
+    })
+  }
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (!title || !author || !description || !url || !sinopsis) return;
-    let id = uuidv4()
-    let temp = {
-      id,
-      title,
-      author,
-      description,
-      url,
-      sinopsis
+    if (!books.title || !books.author || !books.description || !books.url) return;
+    const dataBaru = {
+      title: books.title,
+      author: books.author,
+      url: books.url,
+      description: books.description
     }
-    dispatch(tambahBuku(temp))
+    tambahBuku(dataBaru)
+    setBooks({
+      ...books,
+      title: "",
+      author: "",
+      url: "",
+      description: ""
+    })
     Swal.fire({
       position: 'center',
       icon: 'success',
@@ -52,8 +80,9 @@ const FormAddBook = () => {
               label='Judul'
               id='typeText'
               type='text'
-              name={title}
-              onChange={(e) => setTitle(e.target.value)}
+              name='title'
+              value={books.title}
+              onChange={onChange}
             />
           </div>
           <div className='mb-3'>
@@ -61,25 +90,19 @@ const FormAddBook = () => {
               label='Penulis'
               id='typeText'
               type='text'
-              name={author}
-              onChange={(e) => setAuthor(e.target.value)}
+              name='author'
+              value={books.author}
+              onChange={onChange}
             />
-          </div>
-          <div className='mb-3'>
-            <MDBInput
-              label='Deskripsi'
-              id='typeText'
-              type='text'
-              name={description}
-              onChange={(e) => setDescription(e.target.value)} />
           </div>
           <div className='mb-3'>
             <MDBInput
               label='URL Sampul'
               id='typeURL'
               type='url'
-              name={url}
-              onChange={(e) => setUrl(e.target.value)}
+              name='url'
+              value={books.url}
+              onChange={onChange}
             />
           </div>
           <div className='mb-3'>
@@ -87,8 +110,9 @@ const FormAddBook = () => {
               label='Sinopsis'
               id='textAreaExample'
               rows={4}
-              name={sinopsis}
-              onChange={(e) => setSinopsis(e.target.value)}
+              name='description'
+              value={books.description}
+              onChange={onChange}
             />
           </div>
           <div className="d-grid gap-2 d-md-flex justify-content-md-end">

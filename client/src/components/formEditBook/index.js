@@ -1,48 +1,146 @@
-import React from 'react'
-import {
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBBtn
-} from 'mdb-react-ui-kit'
-import { useSelector, useDispatch } from 'react-redux'
-import { hapusBuku } from '../../store/bookSlice'
+import React, { useState, useEffect } from 'react'
+import { useQuery } from '@apollo/client'
+import { GetBookId } from '../../graphql/query'
+import useUpdateBook from './../../hooks/useUpdateBook'
+import './style.css'
+import LoadingSVG from '../LoadingSVG'
 
-const FormEditBook = () => {
+const FormEditBook = (props) => {
 
-  const books = useSelector((state) => state.book.books)
-  const dispatch = useDispatch()
+  const { data, error, loading } = useQuery(GetBookId, {
+    variables: {
+      id: props.id
+    }
+  })
+  const { updateBook } = useUpdateBook()
+  const [state, setState] = useState({
+    title: "",
+    author: "",
+    url: "",
+    description: ""
+  })
+
+  useEffect(() => {
+    async function check() {
+      setState({
+        title: data?.book[0].title,
+        author: data?.book[0].author,
+        url: data?.book[0].url,
+        description: data?.book[0].description,
+      })
+    }
+
+    check()
+  }, [data])
+
+  if (loading) {
+    return <LoadingSVG />
+  }
+
+  if (error) {
+    return <p>Something Went Wrong...</p>
+  }
+
+  const handleSubmit = (e) => {
+    if (
+      state.title === "" ||
+      state.author === "" ||
+      state.url === "" ||
+      state.description === ""
+    ) {
+      return
+    } else {
+      updateBook({
+        variables: {
+          id: props.id,
+          title: state.title,
+          author: state.author,
+          url: state.url,
+          description: state.description,
+        },
+      })
+      props.handleClose()
+    }
+  }
+
+  const onChange = (e) => {
+    console.log(e.target.name)
+    console.log(e.target.value)
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    })
+    console.log(state.title, "title")
+  }
+
 
   return (
-    <div className="container">
-      <MDBRow className='row-cols-1 row-cols-md-3 g-4 mt-4 p-5'>
-        {books.map((book) => (
-          <MDBCol className='w-25'>
-            <MDBCard>
-              <MDBCardBody className='light-blue'>
-                <MDBCardTitle className='fw-bold'>{book.title}</MDBCardTitle>
-                <MDBCardText>
-                  {book.description}
-                </MDBCardText>
-                <MDBBtn className='float-start' color='warning' rounded>
-                  Edit
-                </MDBBtn>
-                <MDBBtn
-                  className='float-end'
-                  color='danger'
-                  rounded
-                  onClick={() => { dispatch(hapusBuku(book.id)) }}
-                >
-                  Delete
-                </MDBBtn>
-              </MDBCardBody>
-            </MDBCard>
-          </MDBCol>
-        ))}
-      </MDBRow>
+    <div>
+      <div className="popup-box" style={{ color: "black" }}>
+        <div className="box">
+          <span className="close-icon" onClick={props.handleClose}>
+            x
+          </span>
+          <h1>Update Book</h1>
+          <form onSubmit={handleSubmit}>
+            <p>Book</p>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Judul..."
+                onChange={onChange}
+                value={state.title}
+                aria-label="title"
+                name="title"
+                aria-describedby="basic-addon1"
+                required
+              />
+            </div>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Penulis..."
+                onChange={onChange}
+                value={state.author}
+                aria-label="author"
+                name="author"
+                aria-describedby="basic-addon1"
+                required
+              />
+            </div>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Link Gambar..."
+                onChange={onChange}
+                value={state.url}
+                aria-label="url"
+                name="url"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Keterangan..."
+                onChange={onChange}
+                value={state.description}
+                aria-label="description"
+                name="description"
+                aria-describedby="basic-addon1"
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-outline-primary mt-3">
+              Update Book
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   )
 }

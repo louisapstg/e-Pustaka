@@ -1,18 +1,18 @@
 import React from 'react'
 import {
   Navbar,
-  FormEditBook,
+  EditBookList,
   Footer
 } from '../../components'
 
-const EditBook = () => {
+const EditPage = () => {
   return (
     <div>
       <Navbar />
-      <FormEditBook />
+      <EditBookList />
       <Footer />
     </div >
   )
 }
 
-export default EditBook
+export default EditPage
