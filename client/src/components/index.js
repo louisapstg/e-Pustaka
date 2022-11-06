@@ -1,13 +1,15 @@
 import Navbar from './navbar'
-import Intro from './intro/index'
-import Intro2 from './intro2/index'
-import Info from './info/index'
-import Footer from './footer/index'
-import BookList from './bookList/index'
-import FormAddBook from './formAddBook/index'
-import FormEditBook from './formEditBook/index'
-import FormLogin from './formLogin/index'
-import FormRegister from './formRegister/index'
+import Intro from './intro'
+import Intro2 from './intro2'
+import Info from './info'
+import Footer from './footer'
+import BookList from './bookList'
+import FormAddBook from './formAddBook'
+import FormLogin from './formLogin'
+import FormRegister from './formRegister'
+import FormEditBook from './FormEditBook'
+import EditBookList from './editBookList'
+
 
 export {
   Navbar,
@@ -17,7 +19,8 @@ export {
   Footer,
   BookList,
   FormAddBook,
-  FormEditBook,
+  EditBookList,
   FormLogin,
-  FormRegister
+  FormRegister,
+  FormEditBook
 }

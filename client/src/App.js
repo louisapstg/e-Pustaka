@@ -17,7 +17,7 @@ import {
   Home,
   List,
   AddBook,
-  EditBook,
+  EditPage,
   Login,
   Register
 } from './pages'
@@ -30,7 +30,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/book-list' element={<List />} />
           <Route path='/add-book' element={<AddBook />} />
-          <Route path='/edit-book' element={<EditBook />} />
+          <Route path='/edit-book' element={<EditPage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
         </Routes>

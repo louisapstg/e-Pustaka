@@ -14,14 +14,25 @@ export const GetBook = gql`
   }
  `
 
+export const GetBookId = gql`
+  query MyQuery($id: Int) {
+    book (where: { id: { _eq: $id }}) {
+      title
+      author
+      url
+      description
+    }
+  }
+`
+
 export const GetBookTitle = gql`
-     query MyQuery($title: String!) {
-        book(where: {title: {_eq: $title}}){
-          id
-          title
-          author
-          url
-          description
-        }
-     }
+  query MyQuery($title: String!) {
+    book(where: {title: {_eq: $title}}){
+      id
+      title
+      author
+      url
+      description
+    }
+  }
  `

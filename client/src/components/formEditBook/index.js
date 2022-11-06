@@ -1,22 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import {
-  MDBTable,
-  MDBTableHead,
-  MDBTableBody,
-  MDBBtn
-} from 'mdb-react-ui-kit'
-import useGetData from './../../hooks/useGetData'
-import LoadingSVG from './../LoadingSVG'
-import useDeleteBook from './../../hooks/userDeleteBook';
-import useUpdateBook from './../../hooks/useUpdateBook';
+import React, { useState, useEffect } from 'react'
+import { useQuery } from '@apollo/client'
+import { GetBookId } from '../../graphql/query'
+import useUpdateBook from './../../hooks/useUpdateBook'
+import './style.css'
+import LoadingSVG from '../LoadingSVG'
 
+const FormEditBook = (props) => {
 
-const FormEditBook = () => {
-
-  const { data, loading, error, subscribeBook } = useGetData()
-  const { deleteBook, loadingDelete } = useDeleteBook()
-  const { updateBook, loadingUpdate } = useUpdateBook()
-  const [status, setStatus] = useState(false)
+  const { data, error, loading } = useQuery(GetBookId, {
+    variables: {
+      id: props.id
+    }
+  })
+  const { updateBook } = useUpdateBook()
   const [state, setState] = useState({
     title: "",
     author: "",
@@ -25,80 +21,126 @@ const FormEditBook = () => {
   })
 
   useEffect(() => {
-    subscribeBook()
-  }, [])
+    async function check() {
+      setState({
+        title: data?.book[0].title,
+        author: data?.book[0].author,
+        url: data?.book[0].url,
+        description: data?.book[0].description,
+      })
+    }
 
-  if (loading || loadingDelete || loadingUpdate) {
-    return (
-      <div className='m-5 p-5'>
-        <LoadingSVG />
-      </div>
-    )
+    check()
+  }, [data])
+
+  if (loading) {
+    return <LoadingSVG />
   }
 
   if (error) {
     return <p>Something Went Wrong...</p>
   }
 
-  const onDelete = (idx) => {
-    deleteBook({
-      variables: {
-        id: idx
-      }
-    })
-  }
-
-  const onClick = () => {
-    return setStatus(!status)
+  const handleSubmit = (e) => {
+    if (
+      state.title === "" ||
+      state.author === "" ||
+      state.url === "" ||
+      state.description === ""
+    ) {
+      return
+    } else {
+      updateBook({
+        variables: {
+          id: props.id,
+          title: state.title,
+          author: state.author,
+          url: state.url,
+          description: state.description,
+        },
+      })
+      props.handleClose()
+    }
   }
 
   const onChange = (e) => {
-    setState(e.target.value)
+    console.log(e.target.name)
+    console.log(e.target.value)
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    })
+    console.log(state.title, "title")
   }
 
+
   return (
-    <div className="container-fluid mt-5 pt-5 mb-8">
-      <MDBTable align='middle'>
-        <MDBTableHead>
-          <tr className='text-center'>
-            <th scope='col' className='bg-danger'>Book</th>
-            <th scope='col' className='bg-warning'>Author</th>
-            <th scope='col' className='bg-danger th-w'>Description</th>
-            <th scope='col' className='bg-warning th-w2'>Actions</th>
-          </tr>
-        </MDBTableHead>
-        <MDBTableBody>
-          {data?.book.map((item) => (
-            <tr>
-              <td>
-                <div className='d-flex align-items-center'>
-                  <img
-                    src={item.url}
-                    alt=''
-                    style={{ width: '45px', height: '45px' }}
-                    className='rounded'
-                  />
-                  <div className='ms-3'>
-                    <p className='fw-bold mb-1'>{item.title}</p>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <p className='fw-normal mb-1'>{item.author}</p>
-              </td>
-              <td>{item.description}</td>
-              <td className='text-center'>
-                <MDBBtn className='me-4' color='warning' rounded size='sm'>
-                  Edit
-                </MDBBtn>
-                <MDBBtn color='danger' rounded size='sm' onClick={() => onDelete(item.id)}>
-                  Delete
-                </MDBBtn>
-              </td>
-            </tr>
-          ))}
-        </MDBTableBody>
-      </MDBTable>
+    <div>
+      <div className="popup-box" style={{ color: "black" }}>
+        <div className="box">
+          <span className="close-icon" onClick={props.handleClose}>
+            x
+          </span>
+          <h1>Update Book</h1>
+          <form onSubmit={handleSubmit}>
+            <p>Book</p>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Judul..."
+                onChange={onChange}
+                value={state.title}
+                aria-label="title"
+                name="title"
+                aria-describedby="basic-addon1"
+                required
+              />
+            </div>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Penulis..."
+                onChange={onChange}
+                value={state.author}
+                aria-label="author"
+                name="author"
+                aria-describedby="basic-addon1"
+                required
+              />
+            </div>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Link Gambar..."
+                onChange={onChange}
+                value={state.url}
+                aria-label="url"
+                name="url"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Keterangan..."
+                onChange={onChange}
+                value={state.description}
+                aria-label="description"
+                name="description"
+                aria-describedby="basic-addon1"
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-outline-primary mt-3">
+              Update Book
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   )
 }
