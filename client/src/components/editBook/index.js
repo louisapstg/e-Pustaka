@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import {
-  MDBTable,
-  MDBTableHead,
-  MDBTableBody,
   MDBBtn
 } from 'mdb-react-ui-kit'
-import FormEditBook from './../FormEditBook'
+import FormEditBook from './../formEditBook'
 import useDeleteBook from './../../hooks/userDeleteBook'
 import LoadingSVG from './../LoadingSVG'
 
