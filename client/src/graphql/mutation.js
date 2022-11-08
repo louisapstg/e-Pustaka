@@ -1,5 +1,5 @@
 import {
-    gql,
+  gql,
 } from '@apollo/client'
 
 export const DeleteBook = gql`

@@ -21,18 +21,26 @@ import {
   Login,
   Register
 } from './pages'
+import { useSelector } from 'react-redux'
+import ProtectedLogin from './auth/index';
 
 function App() {
+
+  const token = useSelector((state) => state.token.tokens)
+
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/book-list' element={<List />} />
-          <Route path='/add-book' element={<AddBook />} />
-          <Route path='/edit-book' element={<EditPage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
+
+          <Route element={<ProtectedLogin token={token} />}>
+            <Route path='/' element={<Home />} />
+            <Route path='/book-list' element={<List />} />
+            <Route path='/add-book' element={<AddBook />} />
+            <Route path='/edit-book' element={<EditPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>

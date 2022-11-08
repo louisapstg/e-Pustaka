@@ -7,4 +7,4 @@ const ProtectedLogin = ({ token, redirectPath = "/login", children }) => {
      return children ? children : <Outlet />;
 };
 
-export default ProtectedLogin
+export default ProtectedLogin;

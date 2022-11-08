@@ -3,9 +3,11 @@ import { persistReducer, persistStore } from "redux-persist"
 import storage from "redux-persist/lib/storage"
 import { configureStore } from "@reduxjs/toolkit"
 import bookSlice from './bookSlice';
+import auth from "./auth";
 
 const reducers = combineReducers({
-  book: bookSlice
+  book: bookSlice,
+  token: auth
 })
 
 const persistConfig = {

@@ -5,7 +5,7 @@ import {
   MDBBtn
 } from 'mdb-react-ui-kit'
 import Swal from 'sweetalert2'
-import useInsertBook from './../../hooks/useInsertBook';
+import useInsertBook from '../../hooks/useInsertBook';
 
 const FormAddBook = () => {
 
