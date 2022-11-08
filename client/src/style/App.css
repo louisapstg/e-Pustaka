@@ -1,84 +1,97 @@
 .App {
-  text-align: center;
+   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+   height: 40vmin;
+   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+   .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+   }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+   background-color: #282c34;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   font-size: calc(10px + 2vmin);
+   color: white;
 }
 
 .App-link {
-  color: #61dafb;
+   color: #61dafb;
 }
 
 .text-justify {
-  text-align: justify;
+   text-align: justify;
 }
 
 .text-transparent {
-  color: transparent;
+   color: transparent;
 }
 
 .blue {
-  background-color: #4361ee !important;
-  color: white !important;
+   background-color: #4361ee !important;
+   color: white !important;
 }
 
 .text-blue {
-  color: #4361ee;
+   color: #4361ee;
 }
 
 .light-blue {
-  background-color: #f8fbff !important;
-  color: #000;
+   background-color: #f8fbff !important;
+   color: #000;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+   from {
+      transform: rotate(0deg);
+   }
+   to {
+      transform: rotate(360deg);
+   }
 }
 
 .list-group .list-group-item {
-  font-size: 14px;
+   font-size: 14px;
 }
 
 .col-4 p {
-  font-size: 14px;
+   font-size: 14px;
 }
 
 .book-card {
-  width: 14rem;
+   width: 14rem;
 }
 
 .font-card {
-  font-size: 14px;
+   font-size: 14px;
 }
 
 .th-w {
-  width: 40rem;
+   width: 40rem;
 }
 
 .th-w2 {
-  width: 15rem;
+   width: 15rem;
+}
+
+.truncate {
+   width: 200px;
+   font-size: 14px;
+   overflow: hidden;
+   max-height: 8rem;
+   -webkit-box-orient: vertical;
+   display: block;
+   display: -webkit-box;
+   overflow: hidden !important;
+   text-overflow: ellipsis;
+   -webkit-line-clamp: 4;
 }

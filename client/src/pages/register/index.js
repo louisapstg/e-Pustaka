@@ -1,13 +1,11 @@
 import React from 'react'
 import {
-  FormRegister,
-  Navbar
+  FormRegister
 } from '../../components'
 
 const Register = () => {
   return (
     <div>
-      <Navbar />
       <FormRegister />
     </div>
   )

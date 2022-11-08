@@ -1,6 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './style.css'
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { deleteToken } from "../../store/auth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faEllipsis,
@@ -14,6 +17,23 @@ import { faPenToSquare } from '@fortawesome/free-regular-svg-icons'
 import { faProductHunt } from '@fortawesome/free-brands-svg-icons'
 
 const Navbar = () => {
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const logOut = (e) => {
+    e.preventDefault();
+    dispatch(deleteToken());
+    navigate("/login");
+  };
+
+  const account = useSelector((state) => state.token.account);
+  const email = useSelector((state) => state.token.email);
+  const user = () => {
+    if (account == "User") {
+      return email;
+    }
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg fixed-top position-fixed blue border-black">
@@ -69,18 +89,12 @@ const Navbar = () => {
             </div>
             <div className="col-4">
               <div className="text-center">
-                <Link to='/login'>
-                  <button className="btn btn-login fw-bold shadow-none transition">
-                    <FontAwesomeIcon icon={faRightToBracket} className='me-2' />
-                    Masuk
-                  </button>
-                </Link>
-                <Link to='/register'>
-                  <button className="btn btn-sign fw-bold transition">
-                    <FontAwesomeIcon icon={faUserPlus} className='me-1' />
-                    Daftar
-                  </button>
-                </Link>
+                <a className="btn btn-login fw-bold shadow-none transition text-lowercase">
+                  {user()}
+                </a>
+                <button className="btn btn-sign fw-bold transition" onClick={logOut}>
+                  Keluar
+                </button>
               </div>
             </div>
           </div>

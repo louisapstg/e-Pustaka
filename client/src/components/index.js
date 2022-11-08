@@ -3,12 +3,18 @@ import Intro from './intro'
 import Intro2 from './intro2'
 import Info from './info'
 import Footer from './footer'
-import BookList from './bookList'
-import FormAddBook from './formAddBook'
-import FormLogin from './formLogin'
-import FormRegister from './formRegister'
-import FormEditBook from './formEditBook'
-import EditBookList from './editBookList'
+
+import {
+  FormAddBook,
+  FormLogin,
+  FormRegister,
+  FormEditBook
+} from './form'
+
+import {
+  BookList,
+  EditBookList
+} from './book'
 
 
 export {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useQuery } from '@apollo/client'
 import { GetBookId } from '../../graphql/query'
-import useUpdateBook from './../../hooks/useUpdateBook'
+import useUpdateBook from '../../hooks/useUpdateBook'
 import './style.css'
 import LoadingSVG from '../LoadingSVG'
 
