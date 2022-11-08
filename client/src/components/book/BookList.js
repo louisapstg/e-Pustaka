@@ -51,7 +51,7 @@ const BookList = () => {
             <p>Berikut merupakan buku-buku yang ada dan dapat dipinjam pada perpustakaan ini: </p>
          </div>
 
-         <form class="d-flex justify-content-end" role="search">
+         <form class="d-flex justify-content-end" style={{ marginRight: '8rem' }} role="search">
             <input
                class="form-control me-2 w-25"
                type="search"

@@ -32,7 +32,13 @@ const FormLogin = () => {
         // Jika Benar, Mengambil Token yang dimiliki user dan menyimpannya di local storage
         console.log("success");
         { data?.user.map((item) => dispatch(addTokenUser(item))); }
-        Swal.fire("Berhasil Masuk!", "Selamat Datang di ePustaka!", "success");
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Berhasil Masuk',
+          showConfirmButton: false,
+          timer: 1500
+        })
         navigate("/");
       } else {
         console.log("notfound");
