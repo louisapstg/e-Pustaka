@@ -28,24 +28,24 @@ const EditBookList = () => {
           return <p>Something Went Wrong...</p>
      }
 
-     const handlerTitle = () => {
-          getTitleData({
-               variables: {
-                    title: title
-               }
-          })
-          setTitle(singleTitleData?.book)
-     }
+     // const handlerTitle = () => {
+     //      getTitleData({
+     //           variables: {
+     //                title: title
+     //           }
+     //      })
+     //      setTitle(singleTitleData?.book)
+     // }
 
-     const onChangeName = (e) => {
-          if (e.target) {
-               setTitle(e.target.value)
-          }
-     }
+     // const onChangeName = (e) => {
+     //      if (e.target) {
+     //           setTitle(e.target.value)
+     //      }
+     // }
 
      return (
           <div className="container-fluid mt-5 pt-5 mb-8">
-               <form class="d-flex justify-content-end mb-3" role="search">
+               {/* <form class="d-flex justify-content-end mb-3" role="search">
                     <input
                          class="form-control me-2 w-25"
                          type="search"
@@ -61,14 +61,14 @@ const EditBookList = () => {
                     >
                          Cari
                     </button>
-               </form>
+               </form> */}
                <MDBTable align='middle'>
                     <MDBTableHead>
-                         <tr className='text-center'>
-                              <th scope='col' className='bg-danger'>Title</th>
-                              <th scope='col' className='bg-warning'>Author</th>
-                              <th scope='col' className='bg-danger th-w'>Description</th>
-                              <th scope='col' className='bg-warning th-w2'>Actions</th>
+                         <tr className='text-center light-blue'>
+                              <th scope='col' className='fw-bold fs-6'>Title</th>
+                              <th scope='col' className='fw-bold fs-6'>Author</th>
+                              <th scope='col' className='th-w fw-bold fs-6'>Description</th>
+                              <th scope='col' className='th-w2 fw-bold fs-6'>Actions</th>
                          </tr>
                     </MDBTableHead>
                     <MDBTableBody>

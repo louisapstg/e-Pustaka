@@ -29,20 +29,20 @@ const BookList = () => {
       }
    }, [singleTitleData])
 
-   const handlerTitle = () => {
-      getTitleData({
-         variables: {
-            title: title
-         }
-      })
-      setTitle(singleTitleData?.book)
-   }
+   // const handlerTitle = () => {
+   //    getTitleData({
+   //       variables: {
+   //          title: title
+   //       }
+   //    })
+   //    setTitle(singleTitleData?.book)
+   // }
 
-   const onChangeName = (e) => {
-      if (e.target) {
-         setTitle(e.target.value)
-      }
-   }
+   // const onChangeName = (e) => {
+   //    if (e.target) {
+   //       setTitle(e.target.value)
+   //    }
+   // }
 
    return (
       <div className='container-fluid'>
@@ -51,7 +51,7 @@ const BookList = () => {
             <p>Berikut merupakan buku-buku yang ada dan dapat dipinjam pada perpustakaan ini: </p>
          </div>
 
-         <form class="d-flex justify-content-end" style={{ marginRight: '8rem' }} role="search">
+         {/* <form class="d-flex justify-content-end" style={{ marginRight: '8rem' }} role="search">
             <input
                class="form-control me-2 w-25"
                type="search"
@@ -67,9 +67,9 @@ const BookList = () => {
             >
                Cari
             </button>
-         </form>
+         </form> */}
          {
-            errorAllData && <p>Something went wrong...</p>
+            errorAllData && <p className='mt-5 text-center'>Something went wrong...</p>
          }
          {
             (loadingAllData || loadingSingleTitleData) && (
@@ -81,7 +81,7 @@ const BookList = () => {
          {
             !errorAllData && (
                <div className='container'>
-                  <div className="d-flex flex-wrap mt-4 p-0 m-0">
+                  <div className="d-flex flex-wrap mb-5 p-0 m-0">
                      {allData?.book.map((item) => (
                         <div class="card my-3 light-blue mx-3" style={{ width: "18rem" }}>
                            <img src={item.url} class="card-img-top" alt="..." />

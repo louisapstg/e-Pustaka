@@ -29,16 +29,7 @@ const FormLogin = () => {
   useEffect(() => {
     async function cek() {
       if (data?.user[0]) {
-        // Jika Benar, Mengambil Token yang dimiliki user dan menyimpannya di local storage
-        console.log("success");
         { data?.user.map((item) => dispatch(addTokenUser(item))); }
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'Berhasil Masuk',
-          showConfirmButton: false,
-          timer: 1500
-        })
         navigate("/");
       } else {
         console.log("notfound");
@@ -112,12 +103,6 @@ const FormLogin = () => {
                 type='password'
                 onChange={e => setPassword(e.target.value)}
               />
-            </div>
-            <div className='mb-3'>
-              <MDBCheckbox className='me-0' name='inlineCheck' id='inlineCheckbox1' value='option1' inline />
-              <label htmlFor="inlineCheckbox1" className='text-muted' style={{ fontSize: '14px' }}>
-                Remember Me
-              </label>
             </div>
             <div className='mb-3 text-center'>
               <MDBBtn className='w-100 mb-1 fw-bold' color='dark' rounded>
