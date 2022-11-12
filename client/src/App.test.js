@@ -20,8 +20,6 @@ import {
 import { PersistGate } from 'redux-persist/integration/react';
 
 
-
-
 describe("HomePage", () => {
    test('Check Title Home Page', () => {
       render(
