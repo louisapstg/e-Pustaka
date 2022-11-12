@@ -1,0 +1,28 @@
+.btn-login {
+  margin-top: 1px;
+  color: white;
+}
+
+.btn-sign {
+  margin-top: 1px;
+  color: #4361ee;
+  background-color: white;
+}
+
+.btn-login:hover {
+  color: rgb(50, 50, 50);
+}
+
+.transition {
+  transition: 0.3s ease-in-out;
+}
+
+.btn-sign:hover {
+  background-color: rgb(50, 50, 50);
+  box-shadow: none;
+  color: white;
+}
+
+.nav-item .nav-link:hover {
+  color: rgb(50, 50, 50) !important;
+}
